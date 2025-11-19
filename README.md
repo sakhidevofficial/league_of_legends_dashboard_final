@@ -1,3 +1,7 @@
+# League of Legends Dashboard
+
+A comprehensive League of Legends statistics dashboard built with Next.js, featuring real-time game data analysis, champion statistics, player performance metrics, and interactive visualizations.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
