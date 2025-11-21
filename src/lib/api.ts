@@ -1,4 +1,4 @@
-import { jsonlProcessor, ProcessedGameData, GameHistoryEntry, ProximityData } from './jsonl-processor';
+import { jsonlProcessor, GameHistoryEntry, ProximityData } from './jsonl-processor';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_GRID_API_BASE_URL || 'https://api.grid.gg';
 const API_KEY = process.env.NEXT_PUBLIC_GRID_API_KEY;
