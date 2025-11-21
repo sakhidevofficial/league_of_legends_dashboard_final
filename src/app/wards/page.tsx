@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { WardMap } from '@/components/ward-map';
 import { ClientOnly } from '@/components/client-only';
@@ -53,7 +53,7 @@ export default function WardsPage() {
     return timeRanges.map((timeRange, index) => {
       // Generate different ward counts and positions based on filters
       let wardCount = 0;
-      let wardPoints: WardPoint[] = [];
+      const wardPoints: WardPoint[] = [];
 
       // Adjust ward data based on role filter
       if (filters.role === 'MID') {
@@ -91,7 +91,7 @@ export default function WardsPage() {
     });
   };
 
-  const applyFilters = () => {
+  const applyFilters = useCallback(() => {
     setLoading(true);
     // Simulate loading delay
     setTimeout(() => {
@@ -99,11 +99,11 @@ export default function WardsPage() {
       setWardData(newWardData);
       setLoading(false);
     }, 500);
-  };
+  }, [filters]);
 
   useEffect(() => {
     applyFilters();
-  }, []);
+  }, [applyFilters]);
 
   const teamOptions = ['GOAL', 'HELL', 'APM', 'GSMC', 'IN5', 'TP', 'TPX', 'WLG'];
   const roleOptions = ['TOP', 'JGL', 'MID', 'BOT', 'SUP'];

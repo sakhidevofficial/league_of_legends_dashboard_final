@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { StartPositionMap } from '@/components/start-position-map';
 import { ClientOnly } from '@/components/client-only';
@@ -112,7 +112,7 @@ export default function StartPositionsPage() {
     return games;
   };
 
-  const applyFilters = () => {
+  const applyFilters = useCallback(() => {
     if (!filters.team) {
       setGameData([]);
       return;
@@ -124,11 +124,11 @@ export default function StartPositionsPage() {
       setGameData(newData);
       setLoading(false);
     }, 500);
-  };
+  }, [filters]);
 
   useEffect(() => {
     applyFilters();
-  }, [filters.team, filters.lastGames]);
+  }, [applyFilters]);
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying);

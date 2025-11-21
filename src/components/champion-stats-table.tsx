@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { ChampionStats } from '@/lib/api';
 import { getWinRateColor } from '@/lib/utils';
 
